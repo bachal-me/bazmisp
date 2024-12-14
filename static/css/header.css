@@ -1,0 +1,173 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* outline: 1px solid red; */
+}
+
+body,
+html {
+  width: 100%;
+  height: 100%;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid black;
+  background-color: #fff;
+}
+
+.nav-logo img {
+  width: 150px;
+}
+
+.navbar-menu-icon {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  cursor: pointer;
+  display: none;
+  transition: all 2s ease-in-out;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  padding: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-list li {
+  margin: 0 25px;
+}
+
+.nav-list a {
+  color: black;
+  text-decoration: none;
+  font-size: 1.07rem;
+}
+
+.nav-list a:hover {
+  color: #457b6f;
+}
+
+.nav-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.btn {
+  font-family: "Lato", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  padding: 15px 15px;
+  font-size: 1rem;
+  border: 1px solid #5d9589;
+  background-color: #457b6f;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #5d9589;
+}
+
+ul {
+  list-style: none;
+}
+
+.nav-items {
+  margin-left: 30px;
+  padding-top: 30px;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  row-gap: 0.5rem;
+  z-index: 9;
+  background-color: #fff;
+  width: 270px;
+  height: 170px;
+  transition: all 5s ease-in-out;
+}
+
+.nav-items a {
+  color: #000;
+  text-decoration: none;
+}
+
+.nav-items a:hover {
+  color: #03162b;
+}
+
+.nav-items .nav-list-item {
+  font-size: 1.1rem;
+}
+
+.nav-list-item:hover {
+  color: #964040;
+}
+
+#sidebar-open,
+#sidebar-close {
+  width: 30px;
+  display: none;
+  cursor: pointer;
+}
+.sidebar {
+  display: none;
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  height: 100vh;
+  padding: 1rem;
+  background-color: aliceblue;
+}
+
+.sidebar-btns {
+  text-align: -webkit-right;
+}
+
+.sidebar li {
+  margin: 1.2rem 0;
+}
+
+.sidebar li a:hover {
+  color: skyblue;
+}
+
+.sidebar li a {
+  text-decoration: none;
+  color: black;
+  font-size: 1.3rem;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    justify-content: space-between;
+    padding: 1rem;
+  }
+  .nav-list {
+    display: none;
+  }
+
+  #sidebar-open,
+  #sidebar-close {
+    display: block;
+  }
+}

@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Signup | Bazm-e-BME</title>
+    <link rel="stylesheet" href="{% static 'users/css/signup.css' %}" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="sign-up-background">
+      <div class="sign-up-page"></div>
+      <div class="sign-up-page"></div>
+    </div>
+
+    {% if messages %}
+    <ul class="messages">
+      {% for message in messages %}
+      <li class="{{ message.tags }}">{{ message }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    <form class="sign-up-form" method="post">
+      <h3>Create Your Account</h3>
+      <div class="form-container">
+        {% csrf_token %}
+        <div class="sign-up-input-container">
+          <div class="sign-up-fields">
+            {% for field in form %}
+            <div class="input-field">
+              <label class="sign-up-label" for="{{ field.id_for_label }}"
+                >{{ field.label }}</label
+              >
+              {{ field }} {% if field.errors %}
+              <div class="error">{{ field.errors }}</div>
+              {% endif %}
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+
+        <button class="sign-up-button" type="submit">Sign up</button>
+
+        <div class="sign-up-social">
+          <p>Already have Account??</p>
+          <h2 class="login-page-link-text">
+            <a href="{% url 'login' %}">Log in Here</a>
+          </h2>
+        </div>
+      </div>
+    </form>
+  </body>
+</html>

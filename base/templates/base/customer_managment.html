@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Management System</title>
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: #4CAF50;
+    color: white;
+}
+
+.container {
+    width: 80%;
+    margin: 20px auto;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+form {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.customer-list {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+select {
+    margin-top: 10px;
+}
+
+.customer-card {
+    background-color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.customer-card h3 {
+    margin-bottom: 5px;
+}
+
+.customer-card p {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Customer Management System</h1>
+    </header>
+
+    <div class="container">
+       
+        <section class="profile-section">
+            <h2>Add Customer Profile</h2>
+            <form id="customerForm">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+                
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone">
+                
+                <label for="status">Status:</label>
+                <select id="status">
+                    <option value="active">Active</option>
+                    <option value="inactive">Inactive</option>
+                    <option value="suspended">Suspended</option>
+                </select>
+
+                <button type="submit">Add Customer</button>
+            </form>
+        </section>
+
+       
+        <section class="service-section">
+            <h2>Service Requests</h2>
+            <form id="serviceRequestForm">
+                <label for="requestCustomer">Customer Name:</label>
+                <input type="text" id="requestCustomer" required>
+                
+                <label for="requestDetails">Request Details:</label>
+                <textarea id="requestDetails" required></textarea>
+
+                <button type="submit">Submit Request</button>
+            </form>
+            <div id="serviceRequests"></div>
+        </section>
+
+        <section class="subscription-section">
+            <h2>Subscription Management</h2>
+            <form id="subscriptionForm">
+                <label for="subscriptionCustomer">Customer Name:</label>
+                <input type="text" id="subscriptionCustomer" required>
+                
+                <label for="subscriptionStatus">Subscription Status:</label>
+                <select id="subscriptionStatus">
+                    <option value="active">Active</option>
+                    <option value="expired">Expired</option>
+                    <option value="pending">Pending</option>
+                </select>
+
+                <button type="submit">Update Subscription</button>
+            </form>
+            <div id="subscriptionInfo"></div>
+        </section>
+
+        
+        <section class="customer-list">
+            <h2>Customer List</h2>
+            <select id="statusFilter">
+                <option value="">Filter by Status</option>
+                <option value="active">Active</option>
+                <option value="inactive">Inactive</option>
+                <option value="suspended">Suspended</option>
+            </select>
+            <div id="customerProfiles"></div>
+        </section>
+    </div>
+
+    <script src="customer.js"></script>
+</body>
+</html>

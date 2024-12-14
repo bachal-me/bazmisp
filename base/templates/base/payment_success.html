@@ -1,0 +1,126 @@
+{% extends "base.html" %} {% load static %} {% block title %}<title>
+    Registration completed</title>{% endblock title %} {% block css %}
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+  
+    .body-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 85vh;
+      font-family: Arial, sans-serif;
+      background-color: white;
+      background-image: url("https://images.pexels.com/photos/27741970/pexels-photo-27741970/free-photo-of-man-with-camera-on-beach.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+      background-size: cover;
+      background-repeat: no-repeat;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      width: 100%;
+    }
+  
+    .checkout-container {
+        display: flex;
+        height: 16rem;
+        justify-content: center;
+        align-items: flex-start;
+        overflow: hidden;
+      }
+
+    .popup-content {
+      background: white;
+      padding: 2rem;
+      width: 40rem;
+      height: 100%;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  
+    .popup-content h2 {
+      margin: 1rem 0;
+    }
+  
+    .popup-content p {
+        margin: 1rem 0;
+      }
+
+    .popup-content form {
+      display: flex;
+      justify-content: center;
+    }
+  
+    .popup-image {
+        width: auto;
+    }
+  
+    .popup-image img {
+        width: 13rem;
+        height: 30rem;
+    }
+  
+    .pay-button {
+      padding: 12px 10px;
+      background-color: tomato;
+      color: white;
+      font-weight: 800;
+      border: 1px solid black;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+  
+    /* Responsive adjustments */
+    @media (max-width: 1024px) {
+      .body-container {
+        width: 60%;
+        padding: 1.5rem;
+      }
+  
+      .popup-content h1 {
+        font-size: 20px;
+      }
+    }
+  
+    @media (max-width: 768px) {
+      .body-container {
+        width: 80%;
+      }
+  
+      .popup-content h1 {
+        font-size: 18px;
+      }
+    }
+  
+    @media (max-width: 480px) {
+      .body-container {
+        width: 100%;
+        padding: 1rem;
+      }
+  
+      .popup-content h1 {
+        font-size: 16px;
+      }
+  
+      .popup-image{
+        display: none;
+      }
+    }
+  </style>
+  {% endblock css %} {% block body %}
+  <div class="body-container">
+    <div class="checkout-container">
+      <div class="popup-image">
+        <img src="{% static 'membership/images/redlines.jpg' %}" alt="">
+      </div>
+      <div class="popup-content">
+        <h1>You are registered successfully</h1>
+        <div class="membership-level">
+          <h2>We have sent you a mail check it out</h2>
+          <p>{{message}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endblock body %}

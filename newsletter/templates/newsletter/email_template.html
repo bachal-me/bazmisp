@@ -1,0 +1,23 @@
+<h2>{{ newsletter.title }}</h2>
+<p>{{ newsletter.body }}</p>
+
+{% if newsletter.blog_posts.exists %}
+    <h3>Featured Blog Posts</h3>
+    <ul>
+        {% for post in newsletter.blog_posts.all %}
+            <li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+{% if newsletter.events.exists %}
+    <h3>Upcoming Events</h3>
+    <ul>
+        {% for event in newsletter.events.all %}
+            <li><a href="{{ event.get_absolute_url }}">{{ event.title }}</a> - {{ event.date_and_time }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+<p>If you no longer wish to receive newsletters from us, please <a href="{{ unsubscribe_url }}">unsubscribe here</a>.</p>
+<p>&copy; {{ current_year }} Bazm-e-BME</p>

@@ -1,0 +1,151 @@
+{% extends "base.html" %} {% load static %} {% block title %}<title>
+  Checkout {{product_name}}</title>{% endblock title %} {% block css %}
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+  
+    .body-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      background-color: white;
+      background-image: url("https://images.pexels.com/photos/27741970/pexels-photo-27741970/free-photo-of-man-with-camera-on-beach.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+      background-size: cover;
+      background-repeat: no-repeat;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      width: 100%;
+    }
+  
+    .checkout-container {
+        display: flex;
+        height: 30rem;
+        justify-content: center;
+        align-items: flex-start;
+        overflow: hidden;
+      }
+
+    .popup-content {
+      background: white;
+      padding: 2rem;
+      width: 40rem;
+      height: 100%;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  
+    .popup-content h2 {
+      margin: 1rem 0;
+    }
+  
+    .popup-content p {
+        margin: 1rem 0;
+      }
+
+    .popup-content form {
+      display: flex;
+      justify-content: center;
+    }
+  
+    .popup-image {
+        width: auto;
+    }
+  
+    .popup-image img {
+        width: 18rem;
+        height: 30rem;
+    }
+  
+    .pay-button {
+      padding: 12px 10px;
+      background-color: tomato;
+      color: white;
+      font-weight: 800;
+      border: 1px solid black;
+      cursor: pointer;
+      margin-bottom: 4rem;
+    }
+  
+    .form-info{
+      text-align:center;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 1024px) {
+      .body-container {
+        width: 60%;
+        padding: 1.5rem;
+      }
+  
+      .popup-content h1 {
+        font-size: 20px;
+      }
+    }
+  
+    @media (max-width: 768px) {
+      .body-container {
+        width: 80%;
+      }
+  
+      .popup-content h1 {
+        font-size: 18px;
+      }
+    }
+  
+    @media (max-width: 480px) {
+      .body-container {
+        width: 100%;
+        padding: 1rem;
+      }
+  
+      .popup-content h1 {
+        font-size: 16px;
+      }
+  
+      .popup-image{
+        display: none;
+      }
+    }
+  </style>
+{% endblock css %} {% block body %}
+<div class="body-container">
+  <div class="checkout-container">
+    <div class="popup-content">
+      <h1>Register</h1>
+      <div class="membership-level">
+        <h2>Membership Details</h2>
+        <p>
+          <strong>Type: </strong> ISP Shop
+        </p>
+        <p>
+          <strong>Payment: </strong> 333/Anum
+        </p>
+        <p>
+          Get membership and unlock all resources
+        </p>
+      </div>
+
+      
+        <form method="post" action="https://sandbox.jazzcash.com.pk/CustomerPortal/transactionmanagement/merchantform/"
+        target="_blank">
+          {% for key,value in post_data.items %}
+            <input type="hidden" , name="{{key}}" value="{{value}}" />
+          {% endfor %}
+            <button class="pay-button" type="submit" class="jazzcash-button">
+              Pay Now
+          </button>
+        </form>
+    </div>
+  </div>
+</div>
+<script>
+  function submitForm() {
+    document.forms[0].submit();
+  }
+</script>
+{% endblock body %}

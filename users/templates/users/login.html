@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Design by foolishdeveloper.com -->
+  <title>Log in | Bazm-e-BME </title>
+  <link rel="stylesheet" href="{% static 'users/css/login.css' %}">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+  <!--Stylesheet-->
+
+</head>
+
+<body>
+  <div class="login-section-background">
+    <div class="login-page"></div>
+    <div class="login-page"></div>
+  </div>
+  <form class="login-form" method="post">
+    {% csrf_token %}
+    <h3>Login Here</h3>
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li class="{{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% for field in form %}
+    <div class="input-field">
+      <label class="sign-up-label" for={{ field.name }}>{{field.label}}</label>
+      {{ field }}
+    </div>
+    {% endfor %}
+
+    <button class="login-button" type="submit">Log In</button>
+    <div class="sign-up-social">
+      <a href="{% url 'reset_password' %}">Forgotten password?</a>
+      <p>Haven't an Account? <a href="{% url 'signup' %}">Sign Up</a></p>
+      <h2 class="login-page-link-text"></h2>
+    </div>
+    <div class="login-social-account">
+      {% load socialaccount %}
+      <a class="login-button" href="{% provider_login_url 'google' %}?next=/">Continue with Google</a>
+    </div>
+  </form>
+</body>
+
+</html>
